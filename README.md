@@ -1,0 +1,1 @@
+#Projeto com exemplos de consultas com JPA (JPQL)
