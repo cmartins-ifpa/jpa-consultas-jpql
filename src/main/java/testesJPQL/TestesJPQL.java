@@ -1,4 +1,4 @@
-package testes;
+package testesJPQL;
 
 import java.math.BigDecimal;
 import java.sql.Date;
