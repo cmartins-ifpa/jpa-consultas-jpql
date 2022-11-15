@@ -5,10 +5,8 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 
-
 /**
- * The persistent class for the automovel database table.
- * 
+ * The persistent class for the automovel database table. 
  */
 @Entity
 @NamedQuery(name="Automovel.findAll", query="SELECT a FROM Automovel a")
