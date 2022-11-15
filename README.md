@@ -1,4 +1,4 @@
-#Projeto com exemplos de consultas com JPA
+# Projeto com exemplos de consultas com JPA
 
 Exemplos de consultas com JPA usando JPQL e API Criteria
 
