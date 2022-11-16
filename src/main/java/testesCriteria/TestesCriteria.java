@@ -10,6 +10,7 @@ import javax.persistence.Persistence;
 
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaDelete;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.CriteriaUpdate;
 import javax.persistence.criteria.Predicate;
@@ -33,10 +34,11 @@ public class TestesCriteria {
 		// consulta8FiltroWhereIsNull();
 		// consulta9FiltroWhereCombinandoPredicados();
 		// consulta10FiltroWhereCombinandoPredicadosLogicos();
-		// consulta11Ordenando2Campos() ;
+		//  consulta11Ordenando2Campos() ;
 		// consulta12Contagem();
 		// consulta13Media();
 		//  consulta14Update();
+		//  consulta15Delete();
 	}
 
 	private static void consulta1GenericaEntidadeObject() {
@@ -324,11 +326,26 @@ public class TestesCriteria {
 		 
 	}
 
+	public static void consulta15Delete() {
+		EntityManager em = getEntityManager();
+		em.getTransaction().begin();
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		
+		CriteriaDelete<Automovel> criteriaDelete = cb.createCriteriaDelete(Automovel.class);
+		Root<Automovel> root = criteriaDelete.from(Automovel.class);
+		// filtra os veiculos acima de $200mil
+		criteriaDelete.where(cb.greaterThan(root.get("valor"), 200000));
+
+		// efetiva o update na transacao
+		int affected = em.createQuery(criteriaDelete).executeUpdate();
+		System.out.println("Linhas deletadas: " + affected); 
+		em.getTransaction().commit();		 
+	}
+	
 	public static EntityManager getEntityManager() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa-consultas");
 		EntityManager em = emf.createEntityManager();
 		return em;
 	}
 
-	 
 }

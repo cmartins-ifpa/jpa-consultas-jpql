@@ -9,6 +9,11 @@ INSERT INTO public.automovel (id, anofabricacao, anomodelo, marca, modelo, valor
 INSERT INTO public.automovel (id, anofabricacao, anomodelo, marca, modelo, valor) VALUES(8, 2020, 2020, 'TOYOTA', 'PICAPE HILUX SRV', 243000);
 INSERT INTO public.automovel (id, anofabricacao, anomodelo, marca, modelo, valor) VALUES(9, 2020, 2021, 'FORD', 'PICAPE RANGER', 290000);
 INSERT INTO public.automovel (id, anofabricacao, anomodelo, marca, modelo, valor) VALUES(10, 2020, 2021, 'GM', 'PICAPE S10', 234000);
+INSERT INTO public.automovel (id, anofabricacao, anomodelo, marca, modelo, valor) VALUES(11, 2010, 2010, 'KIA', 'SUV SPORTAGE', 74000);
+INSERT INTO public.automovel (id, anofabricacao, anomodelo, marca, modelo, valor) VALUES(12, 2012, 2012, 'RENAULT', 'SANDERO', 24700);
+INSERT INTO public.automovel (id, anofabricacao, anomodelo, marca, modelo, valor) VALUES(13, 2012, 2013, 'RENAULT', 'DUSTER XR', 122000);
+INSERT INTO public.automovel (id, anofabricacao, anomodelo, marca, modelo, valor) VALUES(14, 2021, 2022, 'MERCEDES', 'CLASSE C', 134000);
+INSERT INTO public.automovel (id, anofabricacao, anomodelo, marca, modelo, valor) VALUES(15, 2019, 2020, 'MERCEDES', 'CLASSE A', 234600);
 
 -- INSERE "veiculos/proprietários"
 INSERT INTO veiculo(id, proprietario, automovel, placa, data_compra,atual_proprietario) 
