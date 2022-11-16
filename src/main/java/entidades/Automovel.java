@@ -28,7 +28,7 @@ public class Automovel implements Serializable {
 	private BigDecimal valor;
 
 	//bi-directional many-to-one association to Veiculo
-	@OneToMany(mappedBy="automovelBean")
+	@OneToMany(mappedBy="automovel")
 	private List<Veiculo> veiculos;
 
 	public Automovel() {
@@ -92,14 +92,14 @@ public class Automovel implements Serializable {
 
 	public Veiculo addVeiculo(Veiculo veiculo) {
 		getVeiculos().add(veiculo);
-		veiculo.setAutomovelBean(this);
+		veiculo.setAutomovel(this);
 
 		return veiculo;
 	}
 
 	public Veiculo removeVeiculo(Veiculo veiculo) {
 		getVeiculos().remove(veiculo);
-		veiculo.setAutomovelBean(null);
+		veiculo.setAutomovel(null);
 
 		return veiculo;
 	}

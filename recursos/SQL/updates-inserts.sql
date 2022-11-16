@@ -22,6 +22,11 @@ INSERT INTO veiculo(id, proprietario, automovel, placa, data_compra,atual_propri
 INSERT INTO veiculo(id, proprietario, automovel, placa, data_compra,atual_proprietario) 
      VALUES (5, 'ANA SOUZA', 4, 'HUX9B92', '2022-02-01', TRUE);   
 
+INSERT INTO veiculo(id, proprietario, automovel, placa, data_compra,atual_proprietario) 
+     VALUES (6, null, 5, 'HUX9B92', '2021-12-01', FALSE); 
+INSERT INTO veiculo(id, proprietario, automovel, placa, data_compra,atual_proprietario) 
+     VALUES (7, null, 6, 'ABC1B65', '2010-08-21', FALSE);      
+     
 -- MULTAS
 INSERT INTO multa (id, data_multa, veiculo, valor) VALUES (1, '2022-01-03', 1, 120.50);    
 INSERT INTO multa (id, data_multa, veiculo, valor) VALUES (2, '2022-02-01', 1, 140.50);    

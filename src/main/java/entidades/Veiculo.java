@@ -37,7 +37,7 @@ public class Veiculo implements Serializable {
 	//bi-directional many-to-one association to Automovel
 	@ManyToOne
 	@JoinColumn(name="automovel")
-	private Automovel automovelBean;
+	private Automovel automovel;
 
 	public Veiculo() {
 	}
@@ -104,12 +104,12 @@ public class Veiculo implements Serializable {
 		return multa;
 	}
 
-	public Automovel getAutomovelBean() {
-		return this.automovelBean;
+	public Automovel getAutomovel() {
+		return this.automovel;
 	}
 
-	public void setAutomovelBean(Automovel automovelBean) {
-		this.automovelBean = automovelBean;
+	public void setAutomovel(Automovel automovelBean) {
+		this.automovel = automovelBean;
 	}
 
 }

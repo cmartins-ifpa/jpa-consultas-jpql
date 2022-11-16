@@ -13,9 +13,9 @@ import entidades.Automovel;
 
 public class TestesJPQL {
 	public static void main(String[] args) {
-		// teste2ConsultaComParametros();
-		// teste3ConsultaAgregacoes();
-		// teste4ConsultaEstruturaComplexa();
+		  teste2ConsultaComParametros();
+		  teste3ConsultaAgregacoes();
+		  teste4ConsultaEstruturaComplexa();
 		teste4ConsultaEstruturaComplexaComObjeto();
 	}
 
@@ -70,7 +70,7 @@ public class TestesJPQL {
 	public static void teste4ConsultaEstruturaComplexa() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa-consultas");
 		EntityManager em = emf.createEntityManager();
-		String jpql = "SELECT v.dataCompra, v.placa, v.automovelBean.valor FROM Veiculo v";
+		String jpql = "SELECT v.dataCompra, v.placa, v.automovel.valor FROM Veiculo v";
 		Query query = em.createQuery(jpql);
 		List<Object[]> result = query.getResultList();
 		for (Object[] row : result) {
@@ -84,7 +84,7 @@ public class TestesJPQL {
 	public static void teste4ConsultaEstruturaComplexaComObjeto() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa-consultas");
 		EntityManager em = emf.createEntityManager();
-		String jpql = "SELECT NEW testes.ResumoConsulta(v.dataCompra, v.placa, v.automovelBean.valor)"
+		String jpql = "SELECT NEW testesJPQL.ResumoConsulta(v.dataCompra, v.placa, v.automovel.valor)"
 				    + "  FROM Veiculo v";
 		Query query = em.createQuery(jpql);
 		List<ResumoConsulta> result = query.getResultList();
