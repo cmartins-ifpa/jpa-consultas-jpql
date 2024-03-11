@@ -13,10 +13,7 @@ import entidades.Automovel;
 
 public class TestesJPQL {
 	public static void main(String[] args) {
-		  teste2ConsultaComParametros();
-		  teste3ConsultaAgregacoes();
-		  teste4ConsultaEstruturaComplexa();
-		teste4ConsultaEstruturaComplexaComObjeto();
+		teste4ConsultaEstruturaComplexaComObjeto() ;
 	}
 
 	public static void teste1ConsultasSimples() {
@@ -27,18 +24,23 @@ public class TestesJPQL {
 
 		List<Automovel> autos = q.getResultList();
 
-		for (Automovel a : autos) {
-			System.out.println(a.getMarca() + " " + a.getModelo() + " " + a.getAnomodelo());
+		for (Automovel auto : autos) {
+			System.out.println(auto.getMarca() + " "
+                                + auto.getModelo() 
+                                + " " + auto.getAnomodelo());
 		}
 
 		// consulta de um objeto usando o campo AnoFabricacao
 		int anoFab = 2022;
-		Query q2 = em.createQuery("select a from Automovel a " + " where a.anofabricacao = " + anoFab, Automovel.class);
+		Query q2 = em.createQuery("select a from Automovel a " + 
+                          " where a.anofabricacao = " + anoFab, Automovel.class);
 
 		List<Automovel> autosF = q2.getResultList();
 		System.out.println("\nExibindo automoveis do anoFabricao = " + anoFab);
 		for (Automovel a : autosF) {
-			System.out.println(a.getMarca() + " " + a.getModelo() + " " + a.getAnomodelo());
+			System.out.println(a.getMarca() + " " + a.getModelo() + " " +
+                                 a.getAnofabricacao()+  "  - MODELO: "
+                                 + a.getAnomodelo());
 		}
 	}
 
@@ -48,7 +50,8 @@ public class TestesJPQL {
 
 		// consulta de um objeto usando o campo AnoFabricacao como parametro
 		int anoFab = 2022;
-		Query q2 = em.createQuery("select a from Automovel a " + " where a.anofabricacao = :anofab", Automovel.class);
+		Query q2 = em.createQuery("select a from Automovel a " + 
+                        " where a.anofabricacao = :anofab", Automovel.class);
 		q2.setParameter("anofab", anoFab);
 
 		List<Automovel> autosF = q2.getResultList();
@@ -70,7 +73,8 @@ public class TestesJPQL {
 	public static void teste4ConsultaEstruturaComplexa() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa-consultas");
 		EntityManager em = emf.createEntityManager();
-		String jpql = "SELECT v.dataCompra, v.placa, v.automovel.valor FROM Veiculo v";
+		String jpql = "SELECT v.dataCompra, v.placa, v.automovel.valor"
+                        + " FROM Veiculo v";
 		Query query = em.createQuery(jpql);
 		List<Object[]> result = query.getResultList();
 		for (Object[] row : result) {
