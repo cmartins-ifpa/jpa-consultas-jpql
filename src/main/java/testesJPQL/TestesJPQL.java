@@ -74,7 +74,7 @@ public class TestesJPQL {
 		Query query = em.createQuery(jpql);
 		List<Object[]> result = query.getResultList();
 		for (Object[] row : result) {
-			Date dataCompra = (Date) row[0];
+			java.util.Date dataCompra = (java.util.Date) row[0];
 			String placa = (String) row[1];
 			BigDecimal valor = (BigDecimal) row[2];
 			System.out.printf("%-10s  %-10s %12s \n", dataCompra, placa, valor);
